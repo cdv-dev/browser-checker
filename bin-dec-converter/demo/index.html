@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Конвертер числа из двоичной системы в десятичную и наоборот</title>
+    <style>
+        .main-wrapper {
+            width: 400px;
+            margin: 50px auto;
+        }
+        .main-wrapper > div {
+            display: inline-block;
+            width: 110px;
+            text-align: center;
+        }
+        .main-wrapper > div > input {
+            width: 100px;
+        }
+        #err {
+            color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+  <div class="main-wrapper">
+      <div>
+         <label for="fld-decimal">Decimal</label>
+         <input type="text" id="fld-decimal"/>
+      </div>
+      <div>
+         &lt; -- &gt;
+      </div>
+      <div>
+          <label for="fld-binary">Binary</label>
+          <input type="text" id="fld-binary"/>
+      </div>
+      <p><span id="err"></span></p>
+
+  </div>
+  <script src="../bindec.converter.js"></script>
+  <script>
+      var decFld, binFld, wd;
+
+      wd = window.document;
+      decFld = wd.getElementById("fld-decimal");
+      binFld = wd.getElementById("fld-binary");
+      errStr = wd.getElementById("err");
+
+      var convert = new BinaryDecimalConverter();
+
+      decFld.addEventListener("keyup", function(){
+          var rez = convert.toBinary(this.value);
+          binFld.value = rez[0];
+          errStr.innerHTML = rez[1];
+      });
+      binFld.addEventListener("keyup", function(){
+          var rez = convert.toDecimal(this.value);
+          decFld.value = rez[0];
+          errStr.innerHTML = rez[1];
+      });
+  </script>
+</body>
+</html>
