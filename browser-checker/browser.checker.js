@@ -11,7 +11,10 @@
 "use strict";
 
 function Browser () {
-    var ua = window.navigator.userAgent.toLowerCase();
+    var ua = window.navigator.userAgent.toLowerCase(),
+        browserName    = "Unknown",
+        browserVersion = "Unknown";
+
 
     //набор рег. выражений для каждого браузера
     var browsers = {
@@ -22,10 +25,13 @@ function Browser () {
         safary  :  /(safary)[\/]([\w.]+)/
     };
 
-    var match = browsers.ie.exec(ua) || browsers.firefox.exec(ua) || browsers.opera.exec(ua) || browsers.chrome.exec(ua) || browsers.safary.exec(ua);
+    var match = browsers.ie.exec(ua) || browsers.firefox.exec(ua) || browsers.opera.exec(ua) || browsers.chrome.exec(ua) || browsers.safary.exec(ua) || [];
 
-    this.name    = match[1];
-    this.version = match[2];
+    if (typeof match[1] !== "undefined") browserName = match[1];
+    if (typeof  match[2] !== "undefined") browserVersion = match[2];
+
+    this.name    =  browserName;
+    this.version =  browserVersion;
 }
 
 (function(){
