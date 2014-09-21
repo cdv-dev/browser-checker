@@ -4,38 +4,25 @@
     <meta charset="UTF-8">
     <title>Проверка типа и версии браузера</title>
     <style>
-       p > span {
-           color: #808080;
+       #userAgent {
+           color: #b8b8b8;
+           text-align: center;
        }
+
     </style>
+    <script type="text/javascript" src="../source/config.js"></script>
+    <script type="text/javascript" src="../source/checker.js"></script>
 </head>
 <body>
 <div id="userAgent"></div>
+<div style="text-align: center; font-size: 20px;">
+   <p>Если Вы видите это сообщение, браузер поддерживается.</p>
+</div>
 
-<script type="text/javascript" src="../browser.checker.js"></script>
+<script type="text/javascript" src="../source/config.js"></script>
+<script type="text/javascript" src="../source/checker.js"></script>
 <script type="text/javascript">
-
-    window.getUserAgent = function(){
-       return this.navigator.userAgent.toLowerCase();
-    };
-
-    function Content (element){
-        this.element = element;
-    }
-
-    Content.prototype.adder = function(inner){
-        this.element.innerHTML += inner;
-    };
-
-    var div = window.document.getElementById("userAgent");
-
-    content = new Content( div );
-
-    content.adder( "<p><span>UserAgent: </span>" + getUserAgent() + "</p>");
-    content.adder( "<p><span>Browser: </span>" + window.browser.name + "</p>");
-    content.adder( "<p><span>Version: </span>" + window.browser.version + "</p>");
-
-
+   window.document.getElementById("userAgent").innerHTML = window.navigator.userAgent;
 </script>
 </body>
 </html>
