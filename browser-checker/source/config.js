@@ -1,7 +1,7 @@
 var allowedBrowsers = [
   {
       name : "Chrome",
-      minVersion : 0,
+      minVersion : 38,
       downloadLink : "",
       iconLink : "../source/img/chrome.png",
       regexp : /(chrome)[ \/]([\w.]+)/
@@ -29,7 +29,7 @@ var allowedBrowsers = [
     },
     {
         name : "IE",
-        minVersion : 0,
+        minVersion : 8,
         downloadLink : "",
         iconLink : "../source/img/ie.png",
         regexp : /(msie) ([\w.]+)/
