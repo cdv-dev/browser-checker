@@ -1,15 +1,11 @@
 /**
- * @author Dmitriy V. Chernysh
- * @version 2014.09.22
- *
  * Библиотека для проверки версии браузера.
  * Если браузер не поддерживается, выводится сообщение со ссылками для загрузки браузера.
  * Текст сообщения, поддерживаемые браузеры, ссылки для загрузки и др. настраивается в source/config.js .
- *
  */
-"use strict";
 
 (function(){
+    "use strict";
     var ua = window.navigator.userAgent.toLowerCase();
 
     var fnCheck = function() {
