@@ -17,8 +17,6 @@
         for (i = 0; i < allowedBrowsers.length; i++) {
             var match = allowedBrowsers[i].regexp.exec(ua);
             if (match !== null) {
-                if (match[1] === allowedBrowsers[i].name.toLowerCase()) {
-                }
                 if (parseFloat(match[2]) >= parseFloat(allowedBrowsers[i].minVersion)) {
                     b = true;
                 }
