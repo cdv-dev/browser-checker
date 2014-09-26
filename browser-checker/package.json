@@ -1,11 +1,11 @@
 {
     "author" : "Dmitriy V. Chernysh",
     "name": "browser.checker",
-    "version": "2014.09.25",
+    "version": "выставляется при сборке библиотеки",
     "description" : "Библиотека для проверки браузера пользователя по User-Agent.",
     "subdescription" : "Если браузер не поддерживается, очищается body и вставляется сообщение со ссылками для загрузки браузера. Версии и перечь разрешенных браузеров настраивается при сборке библиотеки.",
     "sourceDir" : "source",
-    "destinationDir" : "production",
+    "destinationDir" : "build",
 
     "devDependencies" : {
         "grunt"					: "~0.4.5",

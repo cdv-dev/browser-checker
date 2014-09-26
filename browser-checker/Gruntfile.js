@@ -1,13 +1,14 @@
 module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        vers: grunt.template.date(new Date(), "yyyy.mm.dd"),
         //склеивание
         concat: {
             options: {
                 stripBanners: true,
                 banner: '/** \n' +
                     '* <%= pkg.name %>.js \n' +
-                    '* version: <%= pkg.version %> \n' +
+                    '* version: <%= vers %> \n' +
                     '* author: <%= pkg.author %> \n' +
                     '* \n' +
                     '* <%= pkg.description %>\n' +
@@ -25,7 +26,7 @@ module.exports = function (grunt) {
             options: {
                 banner: '/** \n' +
                     '* <%= pkg.name %>.js \n' +
-                    '* version: <%= pkg.version %> \n' +
+                    '* version: <%= vers %> \n' +
                     '* author: <%= pkg.author %>  \n' +
                     '* <%= pkg.description %>\n' +
                     '*/ \n'
