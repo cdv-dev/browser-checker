@@ -7,6 +7,9 @@ My JavaScript libraries
     <a href="//cdv-dev.github.io/My-JS-libs/browser-checker/build/demo.html">Demo page</a>
   </li>
   <li>
-    <a href="//github.com/cdv-dev/My-JS-libs/tree/develop/browser-checker">Source code</a>
+    <a href="//github.com/cdv-dev/My-JS-libs/tree/develop/browser-checker/source">Source code</a>
+  </li>
+   <li>
+    <a href="//github.com/cdv-dev/My-JS-libs/tree/develop/browser-checker/build">Build</a>
   </li>
 </ul>
