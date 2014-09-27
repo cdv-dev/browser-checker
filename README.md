@@ -26,13 +26,13 @@ browser.checker.js
 
 * Подключить JS-файл к странице (в кодировке UTF-8)
 
-```html
-<head>
-   <!-- перед другими скриптами -->
-   <script type="text/javascript" src="js/browser.checker.min.js"></script>
-</head>
-```
-Зависимости от других библиотек нет.
+  ```html
+  <head>
+     <!-- перед другими скриптами -->
+     <script type="text/javascript" src="js/browser.checker.min.js"></script>
+  </head>
+  ```
+  Зависимости от других библиотек нет.
 
 * Положить каталог *img* на один уровень со страницей, к которой подключена библиотека (если необходимо на другой уровень, то см. пункты "Изменение списка поддерживаемых браузеров" и "Сборка библиотеки"). 
 
@@ -62,17 +62,17 @@ browser.checker.js
 **Сборка библиотеки**
   
 * Добавить команду *grunt* в системные переменные
-```cmd
-nmp install -g grunt cli
-```
+  ```cmd
+  nmp install -g grunt cli
+  ```
 * Перейти в корень проекта (где лежит *package.json*) и установить необходимые модули
-```cmd
-npm install
-```
+  ```cmd
+  npm install
+  ```
 * Собрать библиотеку, выполнив в корне проекта
-```cmd
-grunt
-```
+  ```cmd
+  grunt
+  ```
 
 В каталоге *build / js* появятся две версии библиотеки: минимизированная *browser.checker.min.js* и базовая *browser.checker.js*.
 
