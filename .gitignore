@@ -1,2 +1,5 @@
-.idea
-node-modules
+*.*
+!build/**
+!README.md
+!.gitignore
+
