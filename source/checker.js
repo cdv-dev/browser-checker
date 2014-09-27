@@ -35,6 +35,7 @@
         msgDiv.style.marginRight = "auto";
         msgDiv.style.textAlign = "center";
         msgDiv.style.marginTop = "50px";
+        msgDiv.style.paddingBottom = "25px";
         for (var res in cfg.locres) {
             p = document.createElement("p");
             p.style.fontSize = "20px";

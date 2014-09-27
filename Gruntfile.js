@@ -56,7 +56,6 @@ module.exports = function (grunt) {
     //Модули
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-   // grunt.loadNpmTasks('grunt-contrib-imagemin');
 
     //Задания
     grunt.registerTask('default', ['concat', 'uglify']);

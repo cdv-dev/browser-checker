@@ -9,11 +9,11 @@
 var PageConfigs = function () {
     this.allowedBrowsers = [
         {
-            name: "Opera",
-            minVersion: 10.5,
-            downloadLink: "https://www.opera.com/",
-            iconLink: "./img/opera.png",
-            regexp: /(opera|opr)(?:.*version|)[ \/]([\w.]+)/i
+            name: "Opera",                          //имя браузера, которое будет отображать пользователю на странице загрузки
+            minVersion: 10.5,                       //минимальная версия, ниже которой будет выводится страница загрузки браузера
+            downloadLink: "https://www.opera.com/", //откуда загружать браузер
+            iconLink: "./img/opera.png",            //иконка к ссылке для загрузки (путь относительно страницы, к которой будет подключена библиотека)
+            regexp: /(opera|opr)(?:.*version|)[ \/]([\w.]+)/i //регулярное выражение, по которому определяется наименование и версия браузера
         },
         {
             name: "Safari",
@@ -87,6 +87,7 @@ var PageConfigs = function () {
         msgDiv.style.marginRight = "auto";
         msgDiv.style.textAlign = "center";
         msgDiv.style.marginTop = "50px";
+        msgDiv.style.paddingBottom = "25px";
         for (var res in cfg.locres) {
             p = document.createElement("p");
             p.style.fontSize = "20px";
