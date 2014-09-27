@@ -18,8 +18,7 @@ browser.checker.js
 <li>Firefox 4+</li>
 </ul>
 
-![image](https://cloud.githubusercontent.com/assets/5750211/4431330/ac2fc076-4661-11e4-9ca8-05d16d7ee038.png)
-
+![image](https://cloud.githubusercontent.com/assets/5750211/4431922/733374bc-467e-11e4-8116-998ccdd9b0e0.png)
 
 **Подключение библиотеки:**
 
