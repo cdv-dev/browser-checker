@@ -1,6 +1,6 @@
 /** 
 * browser.checker.js 
-* version: 2014.09.27 
+* version: 2014.10.22 
 * author: Dmitriy V. Chernysh 
 * 
 * Библиотека для проверки браузера пользователя по User-Agent.
@@ -8,41 +8,41 @@
 */ 
 var PageConfigs = function () {
     this.allowedBrowsers = [
-        {
-            name: "Opera",                          //имя браузера, которое будет отображать пользователю на странице загрузки
-            minVersion: 10.5,                       //минимальная версия, ниже которой будет выводится страница загрузки браузера
-            downloadLink: "https://www.opera.com/", //откуда загружать браузер
-            iconLink: "./img/opera.png",            //иконка к ссылке для загрузки (путь относительно страницы, к которой будет подключена библиотека)
-            regexp: /(opera|opr)(?:.*version|)[ \/]([\w.]+)/i //регулярное выражение, по которому определяется наименование и версия браузера
-        },
-        {
-            name: "Safari",
-            minVersion: 5,
-            downloadLink: "https://www.apple.com/safari/",
-            iconLink: "./img/safari.png",
-            regexp: /(safari)[\/]([\w.]+)/i
-        },
-        {
-            name: "Chrome",
-            minVersion: 10,
-            downloadLink: "https://www.google.com/chrome/browser/",
-            iconLink: "./img/chrome.png",
-            regexp: /(chrome)[ \/]([\w.]+)/i
-        },
-        {
-            name: "Firefox",
-            minVersion: 4,
-            downloadLink: "https://www.mozilla.org/ru/firefox/",
-            iconLink: "./img/firefox.png",
-            regexp: /(firefox)[\/]([\w.]+)/i
-        },
-        {
-            name: "IE",
-            minVersion: 8,
-            downloadLink: "https://windows.microsoft.com/ru-ru/internet-explorer/download-ie",
-            iconLink: "./img/ie.png",
-            regexp: /(msie|rv:)([\w.]+|[\s\w.]+)/i
-        }
+            {
+                name: "Opera",                          //имя браузера, которое будет отображать пользователю на странице загрузки
+                minVersion: 10.5,                       //минимальная версия, ниже которой будет выводится страница загрузки браузера
+                downloadLink: "https://www.opera.com/", //откуда загружать браузер
+                iconLink: "../img/browsers/opera.png",            //иконка к ссылке для загрузки (путь относительно страницы, к которой будет подключена библиотека)
+                regexp: /(opera|opr)(?:.*version|)[ \/]([\w.]+)/i //регулярное выражение, по которому определяется наименование и версия браузера
+            },
+            {
+                name: "Chrome",
+                minVersion: 10,
+                downloadLink: "https://www.google.com/chrome/browser/",
+                iconLink: "../img/browsers/chrome.png",
+                regexp: /(chrome)[ \/]([\w.]+)/i
+            },
+            {
+                name: "Firefox",
+                minVersion: 4,
+                downloadLink: "https://www.mozilla.org/ru/firefox/",
+                iconLink: "../img/browsers/firefox.png",
+                regexp: /(firefox)[\/]([\w.]+)/i
+            },
+            {
+                name: "Safari",
+                minVersion: 5,
+                downloadLink: "https://www.apple.com/safari/",
+                iconLink: "../img/browsers/safari.png",
+                regexp: /(safari)[\/]([\w.]+)/i
+            },
+            {
+                name: "IE",
+                minVersion: 8,
+                downloadLink: "//windows.microsoft.com/ru-ru/internet-explorer/download-ie",
+                iconLink: "../img/browsers/ie.png",
+                regexp: /(msie|rv:)([\w.]+|[\s\w.]+)/i
+            }
     ];
 
     this.locres = {
@@ -60,16 +60,14 @@ var PageConfigs = function () {
         for (i = 0, j = cfg.allowedBrowsers.length; i < j; i++) {
             var match = cfg.allowedBrowsers[i].regexp.exec(ua);
             if (match !== null) {
-                if (parseFloat(match[2]) >= parseFloat(cfg.allowedBrowsers[i].minVersion)) {
-                    b = true;
-                }
+                b = (parseFloat(match[2]) >= parseFloat(cfg.allowedBrowsers[i].minVersion));
                 break;
             }
         }
         return b;
     };
 
-    var setHtml = function() {
+   var setHtml = function() {
         if (cfg.allowedBrowsers.length === 0) return;
         var oBody = window.document.body;
         var msgDiv = document.createElement("div");
@@ -77,48 +75,54 @@ var PageConfigs = function () {
         var subDiv = document.createElement("div");
         var uaDiv = document.createElement("div");
 
-        var p, a, atrrHref, icon, img;
+        var p, a, atrrHref, icon, img, span;
 
         uaDiv.style.color = "#b8b8b8";
-        uaDiv.innerText = ua;
+        uaDiv.innerHTML = ua;
 
         msgDiv.style.width = "40%";
-        msgDiv.style.marginLeft = "auto";
-        msgDiv.style.marginRight = "auto";
+        msgDiv.style.position = "relative";
+        msgDiv.style.left = "50%";
+        msgDiv.style.marginLeft = "-20%";
         msgDiv.style.textAlign = "center";
         msgDiv.style.marginTop = "50px";
         msgDiv.style.paddingBottom = "25px";
         for (var res in cfg.locres) {
             p = document.createElement("p");
             p.style.fontSize = "20px";
-            p.innerText = cfg.locres[res];
+            p.innerHTML = cfg.locres[res];
             msgDiv.appendChild(p);
         }
         div.appendChild(msgDiv);
 
         for (var param in cfg.allowedBrowsers) {
             p = document.createElement("p");
+            p.style.padding = "10px";
             a = document.createElement("a");
+            a.style.fontSize = "24px"; //для FF
+            span = document.createElement("span");
             atrrHref = cfg.allowedBrowsers[param].downloadLink;
             a.setAttribute("href", (atrrHref !== "") ? atrrHref : "#");
-            a.style.fontWeight = "700";
-            a.style.fontSize = "24px";
+            span.style.fontWeight = "700";
+            span.style.fontSize = "24px";
+            span.style.paddingLeft = "0.5em";
             icon = cfg.allowedBrowsers[param].iconLink;
             if (icon !== "") {
                 img = document.createElement("img");
                 img.setAttribute("src", icon);
                 img.style.verticalAlign = "middle";
-                img.style.paddingRight = "1em";
                 img.style.border = "none";
                 a.appendChild(img);
             }
-            a.innerHTML = a.innerHTML + cfg.allowedBrowsers[param].name + " " + cfg.allowedBrowsers[param].minVersion + "+";
+            span.innerHTML = span.innerHTML + cfg.allowedBrowsers[param].name + " " + cfg.allowedBrowsers[param].minVersion + "+";
+            a.appendChild(span);
             p.appendChild(a);
             subDiv.appendChild(p);
         }
 
-        subDiv.style.marginLeft = "auto";
-        subDiv.style.marginRight = "auto";
+        subDiv.style.position = "relative";
+        subDiv.style.left = "50%";
+        subDiv.style.marginLeft = "-150px";
         subDiv.style.width = "300px";
         div.appendChild(subDiv);
         div.style.width = "100%";
