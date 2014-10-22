@@ -15,7 +15,6 @@ browser.checker.js
 <li>Safari 5+</li>
 <li>Chrome 10+</li>
 <li>Firefox 4+</li>
-<li>Firefox 4+</li>
 </ul>
 
 ![image](https://cloud.githubusercontent.com/assets/5750211/4431922/733374bc-467e-11e4-8116-998ccdd9b0e0.png)
@@ -27,10 +26,10 @@ browser.checker.js
 * Подключить JS-файл к странице (в кодировке UTF-8)
 
   ```html
-  <head>
-     <!-- перед другими скриптами -->
+  <body>
+     <!-- в конце body после других Javascript файлов -->
      <script type="text/javascript" src="js/browser.checker.min.js"></script>
-  </head>
+  </body>
   ```
   Зависимости от других библиотек нет.
 
